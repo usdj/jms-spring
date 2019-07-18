@@ -30,6 +30,7 @@
             <version>2.0.1</version>
         </dependency>
 
+<!--        由于spring5.0后使用jms2实现，所以需要手动导入jms2.0api并排除jms1.1-->
         <dependency>
             <groupId>org.apache.activemq</groupId>
             <artifactId>activemq-all</artifactId>
