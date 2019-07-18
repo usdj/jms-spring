@@ -1,6 +1,7 @@
 package com.usdj.jms.consumer;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import com.usdj.jms.config.ConsumerConfiguration;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
  * @author gerrydeng
@@ -10,6 +11,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class ConsumerApplication {
 
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("consumer.xml");
+        new AnnotationConfigApplicationContext(ConsumerConfiguration.class);
     }
 }

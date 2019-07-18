@@ -2,6 +2,7 @@ package com.usdj.jms.producer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.jms.Destination;
@@ -11,13 +12,14 @@ import javax.jms.Destination;
  * @date 2019-07-17 20:11
  * @Description:
  */
+@Service
 public class ProducerServiceImpl implements ProducerService {
 
     @Autowired
     private JmsTemplate jmsTemplate;
 
 
-    @Resource(name = "activeMQQueue")
+    @Resource(name = "activeMQTopic")
     private Destination destination;
 
     @Override

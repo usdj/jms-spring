@@ -1,6 +1,8 @@
 package com.usdj.jms.producer;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import com.usdj.jms.config.ProducerConfiguration;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 
 /**
  * @author gerrydeng
@@ -9,9 +11,10 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class ProducerApplication {
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("producer.xml");
-        ProducerServiceImpl producerService = context.getBean("producerService", ProducerServiceImpl.class);
-        for (int i = 0; i < 10000; i++) {
+        AbstractApplicationContext context = new AnnotationConfigApplicationContext(ProducerConfiguration.class);
+//        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("producer.xml");
+        ProducerServiceImpl producerService = context.getBean(ProducerServiceImpl.class);
+        for (int i = 0; i < 1000; i++) {
             producerService.sendMessage("Hello"+ i);
 
         }
